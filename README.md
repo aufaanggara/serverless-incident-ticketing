@@ -7,7 +7,7 @@ Sistem tiket insiden keamanan berbasis AWS Serverless (Lambda Function URL, AWS 
 
 Alur data: `Client → Lambda Function URL → AWS Lambda (Python 3.12) → DynamoDB (tabel incidents)`
 
-Garis putus-putus = relasi pendukung (routes, assume LabRole, logging); alarm CloudWatch dan audit CloudTrail diaktifkan pada tahap berikutnya. Kode diagram: [`docs/architecture.mmd`](docs/architecture.mmd) (Mermaid). Design brief: [`docs/Design_Brief_Incident_Ticketing.docx`](docs/Design_Brief_Incident_Ticketing.docx).
+Garis putus-putus = relasi pendukung (routes, assume LabRole, logging); alarm CloudWatch dan audit CloudTrail diaktifkan pada tahap berikutnya. Kode diagram: [`docs/architecture.mmd`](docs/architecture.png).
 
 > **Catatan Learner Lab:** `dynamodb:CreateTable` ditolak untuk role `voclabs` (console, CLI, CloudFormation). Tabel dibuat lewat CLI memakai identitas IAM user `awsstudent`; Lambda tetap berjalan dengan `LabRole`. Endpoint memakai **Lambda Function URL** karena lebih sederhana daripada API Gateway untuk 4 operasi CRUD.
 
@@ -15,8 +15,7 @@ Garis putus-putus = relasi pendukung (routes, assume LabRole, logging); alarm Cl
 ```text
 .
 ├── docs/
-│   ├── architecture.png / architecture.mmd
-│   └── Design_Brief_Incident_Ticketing.docx
+│   └── architecture.png
 ├── evidence/              # screenshot bukti AWS + TUTORIAL.md
 ├── scripts/               # seluruh perintah deployment (reproducible)
 │   ├── config.sh
@@ -24,7 +23,7 @@ Garis putus-putus = relasi pendukung (routes, assume LabRole, logging); alarm Cl
 │   ├── 02_deploy_lambda.sh
 │   ├── 03_function_url.sh
 │   ├── 04_test_crud.sh
-│   ├── 05_monitoring.sh   # opsional / tahap lanjutan
+│   ├── 05_monitoring.sh   # tahap lanjutan
 │   └── 99_cleanup.sh
 ├── src/lambda_function.py # handler CRUD
 ├── tests/test_local.py    # tes lokal tanpa AWS
