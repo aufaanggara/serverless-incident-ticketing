@@ -16,7 +16,7 @@ Garis putus-putus = relasi pendukung (routes, assume LabRole, logging); alarm Cl
 .
 ├── docs/
 │   └── architecture.png
-├── evidence/              # screenshot bukti AWS + TUTORIAL.md
+├── evidence/              # screenshot bukti AWS
 ├── scripts/               # seluruh perintah deployment (reproducible)
 │   ├── config.sh
 │   ├── 01_create_table.sh
